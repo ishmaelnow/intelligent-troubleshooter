@@ -1,0 +1,78 @@
+# agent/nlp_handler.py
+
+import json
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# === Load knowledge base ===
+with open('agent/knowledge_base.json', 'r') as f:
+    knowledge_base = json.load(f)
+
+# === Diagnostic logic for specific issues ===
+def diagnose_network_issue():
+    print("Have you restarted your router?")
+    response = input("Yes/No: ").strip().lower()
+    if response == "no":
+        print("➡ Please restart your router and check again.")
+    else:
+        print("➡ Try resetting your network settings or contacting your internet provider.")
+
+# === Automation logic ===
+def automate_fix(issue):
+    if issue == "slow_internet":
+        print("\n🛠 Automating Fix: Resetting network settings...")
+        # Simulated fix
+        print("✅ Network settings have been reset. Please check your connection.")
+    else:
+        print("⚠️ Automation is not available for this issue.")
+
+# === Feedback mechanism ===
+def collect_feedback():
+    feedback = input("\n🗣️ Did this solution resolve your issue? (Yes/No): ").strip().lower()
+    if feedback == "yes":
+        print("✅ Great! Your feedback has been recorded.")
+    else:
+        print("📌 We're sorry the issue persists. We'll improve our solution based on your input.")
+
+# === Map issue keys to diagnostic functions ===
+diagnostic_map = {
+    "slow_internet": diagnose_network_issue
+}
+
+# === Main logic for running the agent ===
+def run_agent():
+    # Extract symptoms and keys
+    symptoms = [entry["symptom"] for entry in knowledge_base.values()]
+    keys = list(knowledge_base.keys())
+
+    # Get user input
+    user_input = input("Please describe your problem: ")
+
+    # Vectorize user input and symptoms
+    vectorizer = TfidfVectorizer()
+    vectors = vectorizer.fit_transform([user_input] + symptoms)
+
+    # Compute similarity
+    cos_sim = cosine_similarity(vectors[0:1], vectors[1:]).flatten()
+
+    # Get best match
+    best_match_index = cos_sim.argmax()
+    best_score = cos_sim[best_match_index]
+
+    if best_score > 0.3:
+        matched_key = keys[best_match_index]
+        print(f"\n🛠 Identified Issue: {matched_key.replace('_', ' ').title()}")
+        print(f"💡 Suggested Solution: {knowledge_base[matched_key]['solution']}")
+
+        # Run diagnostics if available
+        if matched_key in diagnostic_map:
+            print("\n🔎 Running diagnostic steps...")
+            diagnostic_map[matched_key]()
+
+        # Run automated fix
+        automate_fix(matched_key)
+
+        # Collect feedback
+        collect_feedback()
+    else:
+        print("❌ Sorry, I couldn't match your issue to any known problems.")

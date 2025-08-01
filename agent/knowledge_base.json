@@ -1,0 +1,62 @@
+{
+  "slow_internet": {
+    "symptom": "My internet is very slow.",
+    "solution": "Try restarting your router and checking your connection settings."
+  },
+  "app_crashing": {
+    "symptom": "The app keeps crashing on startup.",
+    "solution": "Update the app to the latest version and restart your device."
+  },
+  "disk_full": {
+    "symptom": "My disk space is full.",
+    "solution": "Delete unnecessary files or move them to external storage."
+  },
+  "computer_overheating": {
+    "symptom": "My computer is overheating.",
+    "solution": "Ensure proper ventilation and clean your device’s fans."
+  },
+  "bluetooth_not_working": {
+    "symptom": "Bluetooth is not working.",
+    "solution": "Make sure Bluetooth is enabled and try restarting your device."
+  },
+  "printer_not_printing": {
+    "symptom": "My printer is not printing.",
+    "solution": "Check the printer connection and ensure it has enough paper and ink."
+  },
+  "email_not_sending": {
+    "symptom": "I cannot send emails.",
+    "solution": "Check your internet connection and email server settings."
+  },
+  "software_update_required": {
+    "symptom": "Software update is required.",
+    "solution": "Go to settings and check for available updates."
+  },
+  "wifi_connection_issue": {
+    "symptom": "I cannot connect to Wi-Fi.",
+    "solution": "Restart your router and check if the Wi-Fi password is correct."
+  },
+  "battery_drain": {
+    "symptom": "My device battery drains quickly.",
+    "solution": "Reduce screen brightness and close unused apps."
+  },
+  "keyboard_not_working": {
+    "symptom": "My keyboard is not working.",
+    "solution": "Check the connection and try using a different USB port."
+  },
+  "mouse_not_detected": {
+    "symptom": "My mouse is not detected.",
+    "solution": "Reconnect the mouse or try a different one to see if it works."
+  },
+  "application_not_responding": {
+    "symptom": "An application is not responding.",
+    "solution": "Force close the application and restart it."
+  },
+  "screen_flickering": {
+    "symptom": "My screen is flickering.",
+    "solution": "Check the display cable connections and update your graphics drivers."
+  },
+  "audio_issue": {
+    "symptom": "I have no sound on my device.",
+    "solution": "Check the volume settings and ensure audio output is correctly configured."
+  }
+}
