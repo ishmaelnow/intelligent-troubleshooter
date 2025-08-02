@@ -1,0 +1,7 @@
+def automate_fix(issue):
+    if issue == "network_issue":
+        print("Attempting to reset your network settings automatically...")
+        # Simulate a network reset
+        print("Network settings have been reset. Please check your connection.")
+    else:
+        print("Automatic fix is not available for this issue.")

@@ -1,0 +1,28 @@
+from agent.knowledge_base import load_knowledge_base
+
+def diagnose_network_issue(interactive=True):
+    knowledge_base = load_knowledge_base()
+
+    if interactive:
+        # Original interactive flow
+        print("Let's diagnose your network issue.")
+        response = input("Have you tried restarting your router? (Yes/No): ").strip().lower()
+        if response == "no":
+            print(knowledge_base["restart_router"])
+            return
+        response = input("Are all cables securely connected? (Yes/No): ").strip().lower()
+        if response == "no":
+            print(knowledge_base["check_cables"])
+            return
+        response = input("Would you like to try resetting your network settings? (Yes/No): ").strip().lower()
+        if response == "yes":
+            print(knowledge_base["reset_network_settings"])
+            return
+        response = input("Is this issue occurring in your browser? (Yes/No): ").strip().lower()
+        if response == "yes":
+            print(knowledge_base["clear_cache"])
+        else:
+            print(knowledge_base["isp_contact"])
+    else:
+        # Non-interactive mode (API)
+        return "Have you tried restarting your router?"

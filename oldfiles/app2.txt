@@ -1,0 +1,23 @@
+from flask import Flask, request, jsonify
+from agent.diagnostics import diagnose_network_issue
+from agent.fix_automation import automate_fix
+
+app = Flask(__name__)
+
+@app.route("/diagnose", methods=["POST"])
+def diagnose():
+    data = request.json
+    user_input = data.get("message", "").lower()
+
+    response = diagnose_network_issue(user_input)
+    return jsonify({"response": response})
+
+@app.route("/automate", methods=["POST"])
+def automate():
+    data = request.json
+    issue = data.get("issue", "network_issue")
+    result = automate_fix(issue, return_output=True)
+    return jsonify({"response": result})
+
+if __name__ == "__main__":
+    app.run(debug=True)

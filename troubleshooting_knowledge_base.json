@@ -1,0 +1,12 @@
+{
+  "restart_router": "Please restart your router and check if the problem persists.",
+  "reset_network_settings": "Try resetting your network settings. Instructions are available in your system settings under 'Network Reset'.",
+  "check_cables": "Ensure all network cables are securely connected.",
+  "isp_contact": "If the issue continues, please contact your Internet Service Provider (ISP) for further assistance.",
+  "clear_cache": "Clearing your browser cache can sometimes resolve connectivity issues.",
+  "check_wifi_signal": "Make sure you are within range of your Wi-Fi signal and that it is strong enough.",
+  "update_firmware": "Check if your router's firmware is up to date. If not, please update it.",
+  "disable_firewall": "Temporarily disable any firewall or security software to see if it resolves the issue.",
+  "reboot_device": "Reboot your device to refresh the network connection.",
+  "check_dns_settings": "Verify that your DNS settings are correctly configured."
+}

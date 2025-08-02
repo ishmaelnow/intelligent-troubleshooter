@@ -1,0 +1,17 @@
+from agent.knowledge_base import load_knowledge_base
+
+def diagnose_network_issue(user_input):
+    knowledge_base = load_knowledge_base()
+
+    if "restart" in user_input:
+        return knowledge_base["restart_router"]
+    elif "cable" in user_input or "plug" in user_input:
+        return knowledge_base["check_cables"]
+    elif "reset" in user_input or "settings" in user_input:
+        return knowledge_base["reset_network_settings"]
+    elif "browser" in user_input or "cache" in user_input:
+        return knowledge_base["clear_cache"]
+    elif "internet" in user_input or "isp" in user_input:
+        return knowledge_base["isp_contact"]
+    else:
+        return "Sorry, I couldn't determine the issue yet. Please describe the problem in more detail."
