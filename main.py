@@ -1,3 +1,4 @@
+
 from agent.diagnostics import diagnose_network_issue
 from agent.fix_automation import automate_fix
 
@@ -19,3 +20,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+=======
+# main.py
+
+from agent import nlp_handler
+
+if __name__ == "__main__":
+    # Simply triggers the agent’s conversation flow
+    nlp_handler.run_agent()
+
